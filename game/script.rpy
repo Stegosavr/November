@@ -22,7 +22,7 @@ image car = "bg/car.png"
 # Например, сцену bg room можно вызвать файлом "bg room.png",
 # а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
 
-# Спрайты Бати
+# Спрайты укорпжкдшаитавщшиешиеащшкощеитэБати
 image BatyaAngry = "batya/BatyaAngry.png"
 image BatyaY = "batya/BatyaAngry.png"
 
