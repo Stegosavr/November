@@ -9,7 +9,7 @@ define u = Character('Незнакомец', color="#95ff00")
 define unk = Character('', color="#95ff00")
 
 
-#DETEY
+#DETEYY
 image house = "bg/house.png"
 image road = "bg/road.png"
 image forest = "bg/forest.png"
