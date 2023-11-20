@@ -18,6 +18,10 @@ image road = "bg/road.png"
 image forest = "bg/forest.png"
 image car = "bg/car.png"
 
+# Sounds
+define audio.conflict = "Sound/ругань.mp3"
+define audio.slap = "Sound/пощечина.mp3"
+
 
 
 
@@ -58,6 +62,8 @@ label start:
 
     m "Сева прекрати! Не дави так на него,ты же знаешь какой он мягкий и ранимый!"
 
+    play sound slap
+
     hide MatFlip
     show MatSad at right
 
@@ -69,6 +75,7 @@ label start:
     hide MatSad
     with dissolve
 
+    play sound conflict
 
     n "ПРЕКРАТИТЕ ПРЕКРАТИТЕ ПРЕКРАТИТЕ ПРЕКРАТИТЕ ПРЕКРАТИТЕ ПРЕКРАТИТЕ ПРЕКРАТИТЕ ПРЕКРАТИТЕ ПРЕКРАТИТЕ ПРЕКРАТИТЕ!"
     n "Кричал про я себя, но не в силах вымолвить ни слова устремился прочь от этого бедлама, во двор, а оттуда в бескрайний лес - последний оплот матушки природы,"
@@ -78,6 +85,8 @@ label start:
 
     scene forest
     with dissolve
+
+    stop sound
 
     show Tihon
     with dissolve
