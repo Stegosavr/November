@@ -22,7 +22,9 @@ image car = "bg/car.png"
 define audio.conflict = "Sound/ругань.mp3"
 define audio.slap = "Sound/пощечина.mp3"
 
-
+# Music
+define audio.car = "music/(в машине) Summer Love.mp3"
+define audio.carCrash = "music/(до машины) You Idiot.mp3"
 
 
 # складывать все ваши файлы изображений в папку images.
@@ -136,6 +138,9 @@ label start:
 
     scene car
     with dissolve
+
+    play music car
+
 
     show Tihon at left
     show Ferrero at right
@@ -271,6 +276,11 @@ label start:
     fr "Добро пожаловать на борт, сынок."
 
     #В2 - *напасть на маньяка*
+
+
+    play music carCrash
+
+
     n "Я вспомнил что у меня есть туристический нож - незаменимый предмет для людей, живущих около леса. Я резко достаю нож из кармана и нападаю на негодяя."
     nvl hide
     nvl clear
