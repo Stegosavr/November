@@ -17,6 +17,8 @@ image house = "bg/house.png"
 image road = "bg/road.png"
 image forest = "bg/forest.png"
 image car = "bg/car.png"
+image ekran = "bg/ekran smerti.jpg"
+
 
 # Sounds
 define audio.conflict = "Sound/ругань.mp3"
@@ -51,8 +53,11 @@ image Tihon = "tihon/TihonNormal.png"
 image TihonSad = "tihon/TihonSad.png"
 
 #Спрайты Ferrero
-image Ferrero = "ferrero/FerreroLike.png"
-image FerreroFlip = im.Flip("ferrero/FerreroLike.png", horizontal="True")
+image Ferrero = "ferrero/Ferrero.png"
+image FerreroLike = "ferrero/FerreroLike.png"
+image FerreroFlip = im.Flip("ferrero/Ferrero.png", horizontal="True")
+image FerreroLikeFlip = im.Flip("ferrero/FerreroLike.png", horizontal="True")
+
 
 # Игра начинается здесь:
 label start:
@@ -220,17 +225,48 @@ label start:
     #В1 - Описание MonoBehaviour это базовый класс, от которого наследуются все скрипты.
     #В2 - Моноповедение
     #В3 - Монолиза
+    $ answers = 0
+    menu:
+        "Дельтаплан":
+            pass
+        "Интервал в секундах от последнего кадра до текущего. Time. fixedDeltaTime — интервал в секундах, с которым выполняются обновления физики и других фиксированных кадров":
+            $ answers+=1
+        "Дельтавремя и фиксированное дельтавремя":
+            pass
+
     u "Вопрос второй - Что такое deltaTime и fixedDeltaTime?"
     #В1 - Дельтаплан
     #В2 - интервал в секундах от последнего кадра до текущего. Time. fixedDeltaTime — интервал в секундах, с которым выполняются обновления физики и других фиксированных кадров.
     #В3 - дельтавремя и фиксированное дельтавремя
+    menu:
+        "Юрий Юлернович":
+            pass
+        "Билл Гейтс":
+            pass
+        "Дэвид Хелгасон, Николас Фрэнсис и Йоахим Анте":
+            $ answers+=1
+
     u "И финальный вопрос - Кто разработал Unity."
     #В1 - Юрий Юлернович
     #В2 - Билл Гейтс 
     #В3 - Дэвид Хелгасон, Николас Фрэнсис и Йоахим Анте 
+    menu:
+        "Описание MonoBehaviour это базовый класс, от которого наследуются все скрипты":
+            $ answers+=1
+        "Моноповедение":
+            pass
+        "Монолиза":
+            pass
     #-—
     #*вылет новеллы со словами "Давай по новой Миша"*
     #+++
+    if answers < 3:
+        stop music
+        pause 1
+        scene ekran
+        pause 30
+        return
+
     u "Ну надо же, верно, все-таки что-то ты да знаешь."
 
     n "На меня волной нахлынуло ощущение будто бы я правильно ответил на все вопросы в какой-то телевикторине."
@@ -276,14 +312,28 @@ label start:
 
 
     unk "***Здесь будет выбор: 1)'Окей, по рукам.' и 2)'*напасть на маньяка*'. Пока что реализован только 2 вариант, который приводит к концовке.***"
+
     #В1 - *ладно, будь что будет*
     #t "Окей, по рукам."
 
     #fr "Добро пожаловать на борт, сынок."
 
     #В2 - *напасть на маньяка*
+    menu:
+        "*ладно, будь что будет*":
+            t "Окей, по рукам."
+
+            fr "Добро пожаловать на борт, сынок."
+
+            stop music fadeout 2.0
+            pause 2
+            return
+
+        "*Напасть на маньяка!*":
+            jump bad_ending
 
 
+label bad_ending:
     play music carDeath fadein 0.3
 
 
