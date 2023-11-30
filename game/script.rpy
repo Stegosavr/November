@@ -51,11 +51,16 @@ image MatSadFlip = im.Flip("mat/MatSad.png", horizontal="True")
 
 #Спрайты Тихона
 image Tihon = "tihon/TihonNormal.png"
+image TihonSurprised = "tihon/TihonSurprised.png"
 image TihonSad = "tihon/TihonSad.png"
+image TihonKnife = "tihon/TihonKnife.png"
+image TihonKnife2 = "tihon/TihonKnife2.png"
 
 #Спрайты Ferrero
 image Ferrero = "ferrero/Ferrero.png"
 image FerreroLike = "ferrero/FerreroLike.png"
+image FerreroDead = "ferrero/FerreroDead.png"
+
 image FerreroFlip = im.Flip("ferrero/Ferrero.png", horizontal="True")
 image FerreroLikeFlip = im.Flip("ferrero/FerreroLike.png", horizontal="True")
 
@@ -99,7 +104,7 @@ label start:
 
     stop sound
 
-    show Tihon
+    show TihonSad
     with dissolve
 
     t "ГДЕ Я ЧЕРТ ВОЗЬМИ?!"
@@ -113,7 +118,7 @@ label start:
     scene road
     with dissolve
 
-    show Tihon
+    show TihonSad
 
     n "И вот спустя 2 неделю, по моему мнению, и часа реального времени он вышел на трассу. Яркий свет фонарей ударил в мои глаза, ослепив и без того помутневший взор. "
     nvl hide
@@ -159,15 +164,15 @@ label start:
 
     u "Да в таком что ты сейчас похож на плод любви лешего и куста репейника."
 
-    n "Тихон быстро осмотрел себя и понял, что прогулка по осеннему лесу оставила свой след на нем. Вся его одежда была в грязи, листьях и в особенности в липучках репейника..."
-    n "Теперь то Тихон понял почему водители игнорировали его столь продолжительное время. Кто бы захотел приютить на своем чистом сидении какого-то грязного беспризорника?"
+    n "Я быстро осмотрел себя и понял, что прогулка по осеннему лесу оставила свой след на мне. Вся моя одежда была в грязи, листьях и в особенности в липучках репейника..."
+    n "Теперь я понял почему водители игнорировали меня столь продолжительное время. Кто бы захотел приютить на своем чистом сидении какого-то грязного беспризорника?"
     n "Но дальше развивать эту мысль не было времени, надо ответить на вопрос."
     nvl hide
     nvl clear
 
-    t "д.. да нэважно"
+    t "Д.. да нэважно"
 
-    n "лучшее что смог он придумать..."
+    n "Лучшее что смог придумать..."
     nvl hide
     nvl clear
 
@@ -339,6 +344,8 @@ label start:
 label bad_ending:
     play music carDeath fadein 0.3
 
+    hide Tihon
+    show TihonKnife at left
 
     n "Я вспомнил что у меня есть туристический нож - незаменимый предмет для людей, живущих около леса. Я резко достаю нож из кармана и нападаю на негодяя."
     nvl hide
@@ -347,6 +354,14 @@ label bad_ending:
     fr "АААААААААААААААААААААААААА ПРЕКРАТИ ЧТО ТЫ ТВОРИШЬ АААААААААААА"
 
     n "Я ощутил на себе его теплую кровь, выплескивающуюся из него бурным фонтаном."
+
+    hide TihonKnife
+    show TihonKnife2 at left
+
+    hide Ferrero
+    show FerreroDead at right
+    with dissolve
+
     n "Серия точных ударов в горло сделала свое дело - за сиденьем водителя находился уже не Ферреро, а груда плоти в форме человека, с застывшей гримасой ужаса на лице..."
     n "Приятное облегчение отозвалось в моем сердце, наконец смог разрядить весь свой накопившийся стресс. Хмм, стоп на сидении..."
     nvl hide
