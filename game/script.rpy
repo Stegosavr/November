@@ -26,6 +26,8 @@ define audio.conflict = "Sound/ругань.mp3"
 define audio.slap = "Sound/пощечина.mp3"
 define audio.truck = "Sound/Гудок(маньяк).mp3"
 define audio.carCrush = "Sound/Врезание машин.mp3"
+define audio.shoutDead = "Sound/крик смерти.mp3"
+
 
 
 # Music
@@ -351,6 +353,8 @@ label bad_ending:
     n "Я вспомнил что у меня есть туристический нож - незаменимый предмет для людей, живущих около леса. Я резко достаю нож из кармана и нападаю на негодяя."
     nvl hide
     nvl clear
+
+    play sound shoutDead
 
     fr "{size=50}АААААААААААААААААААААААААА ПРЕКРАТИ ЧТО ТЫ ТВОРИШЬ АААААААААААА{/size}"
 
