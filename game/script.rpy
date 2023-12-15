@@ -23,6 +23,11 @@ image car = "bg/car.png"
 image ekran = "bg/ekran smerti.jpg"
 image roadCar = "bg/roadCAR.png"
 
+image office = "bg/office.png"
+image room = "bg/room.png"
+image cabinet = "bg/cabinet.png"
+image AI = "bg/AI.png"
+#image street = "bg/house.png"
 
 # Sounds
 define audio.conflict = "Sound/ругань.mp3"
