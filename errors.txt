@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 357: play requires a file
-    play shoutDead 
-                   ^
+File "game/script.rpy", line 526: end of line expected.
+    n 'Под градусом мои мысли стали путаться, и я уже было хотел выйди из-за стола и пойти проветриться, как тут групповое спиртовое сознание вернуло меня обратно, что окончательно перевело меня из моего 'сознательного' в 'подсознательное' (что бы это не значило).'
+                                                                                                                                                                                                             ^
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Sat Dec  2 23:35:54 2023
+Fri Dec 15 20:27:47 2023
