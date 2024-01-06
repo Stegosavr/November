@@ -50,7 +50,30 @@ define audio.shoutDead = "Sound/крик смерти.mp3"
 
 # Music
 define audio.car = "music/(в машине) Summer Love.mp3"
-define audio.carDeath = "music/(до машины) You Idiot.mp3"
+define audio.carDeath = "music/(в машине) You Idiot.mp3"
+define audio.BG3 = "music/Baldur's Gate 3 - OST. Borislav Slavov - Dark Ambient.mp3"
+define audio.DE1 = "music/British Sea Power - Hope in Work and Joy in Leisure (Disco Elysium OST).mp3"
+define audio.DE2 = "music/British Sea Power - The Cryptozoologists (Disco Elysium OST).mp3"
+define audio.DE3 = "music/British Sea Power - The Field Autopsy (Disco Elysium OST).mp3"
+define audio.DE4 = "music/British Sea Power - We Are Not Checkmated (Disco Elysium OST) (1).mp3"
+define audio.LT = "music/Carpenter Brut - Leather Teeth.mp3"
+define audio.HUE = "music/El Huervo - Daisuke.mp3"
+define audio.FH = "music/Fear & Hunger - Pulse and anxiety.mp3"
+define audio.HPH1 = "music/Heaven Pierce Her - A Thousand Greetings.mp3"
+define audio.HPH2 = "music/Heaven Pierce Her - War Without Reason.mp3"
+define audio.P1 = "music/Persona 5 OST 06  -  Interrogation Room .mp3"
+define audio.P2 = "music/Persona 5 OST 07  -  Recall～Hint .mp3"
+define audio.P3 = "music/Persona 5 OST 22  -  Confession⁄Secret -piano version- .mp3"
+define audio.P4 = "music/Persona 5 OST 30  -  Everyday Days.mp3"
+define audio.P5 = "music/Persona 5 OST 49  -  BAR Yuu Comer .mp3"
+define audio.lift = "music/музыка из лифта - elevator music.mp3"
+
+
+
+define audio.carDeath = "music/(в машине) You Idiot.mp3"
+define audio.carDeath = "music/(в машине) You Idiot.mp3"
+define audio.carDeath = "music/(в машине) You Idiot.mp3"
+
 
 
 # складывать все ваши файлы изображений в папку images.
@@ -505,6 +528,8 @@ label act2:
     show Ferrero at right
     with dissolve
 
+    play music car fadein 5.0
+
     fr 'Доброе утро, соня'
 
     t 'Доброе'
@@ -527,6 +552,8 @@ label act2:
     t 'Какой кошмар'
 
     fr 'Как бы то ни было, пришло время покинуть судно'
+
+    stop music fadeout 1.0
 
     scene street
     show Tihon at left
