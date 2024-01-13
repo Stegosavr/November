@@ -64,7 +64,7 @@ define audio.DE1 = "music/British Sea Power - Hope in Work and Joy in Leisure (D
 define audio.DE2 = "music/British Sea Power - The Cryptozoologists (Disco Elysium OST).mp3"
 define audio.DE3 = "music/British Sea Power - The Field Autopsy (Disco Elysium OST).mp3"
 define audio.DE4 = "music/British Sea Power - We Are Not Checkmated (Disco Elysium OST) (1).mp3"
-define audio.LT = "music/Carpenter Brut - Leather Teeth.mp3"
+define audio.LT = "<from 19>music/Carpenter Brut - Leather Teeth.mp3"
 define audio.HUE = "music/El Huervo - Daisuke.mp3"
 define audio.FH = "music/Fear & Hunger - Pulse and anxiety.mp3"
 define audio.HPH1 = "music/Heaven Pierce Her - A Thousand Greetings.mp3"
@@ -173,6 +173,17 @@ image UlearnBroken = "ulearn/UlearnBroken.png"
 
 
 #image RobotDead = "robot/RobotDead.png"
+
+
+
+
+label splashscreen:
+
+    $ renpy.movie_cutscene('movie.ogv')
+
+    return
+
+
 
 
 # Игра начинается здесь:
@@ -1419,7 +1430,7 @@ label continue1:
     nvl clear
     scene black
 
-    stop music fadeout 1.0
+    stop music fadeout 4.0
     queue music DE4 fadein 5.0
 
     n 'Отец пытался отстреливаться, но пал под их безжалостным напором. Они связали его вместе с раненым Роше.'
