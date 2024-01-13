@@ -36,17 +36,25 @@ image black = "bg/black.png"
 image end1 = "bg/end1.png"
 image end2 = "bg/end2.png"
 image end3 = "bg/end3.png"
+image end12 = "bg/end12.png"
+image end22 = "bg/end22.png"
+image end32 = "bg/end32.png"
 image before_lift = "bg/before_lift.png"
 
 
 # Sounds
 define audio.conflict = "Sound/ругань.mp3"
 define audio.slap = "Sound/пощечина.mp3"
+define audio.bip = "Sound/Дружеский Бип-Бип.mp3"
 define audio.truck = "Sound/Гудок(маньяк).mp3"
 define audio.carCrush = "Sound/Врезание машин.mp3"
 define audio.shoutDead = "Sound/крик смерти.mp3"
 
-
+define audio.head = "Sound/Падение головы.mp3"
+define audio.fall = "Sound/Падение на пол.mp3"
+define audio.crack = "Sound/Рвущийся ковролин.mp3"
+define audio.click = "Sound/Щелчок пальцами.mp3"
+define audio.shoot = "Sound/Дробовик.mp3"
 
 # Music
 define audio.car = "music/(в машине) Summer Love.mp3"
@@ -85,14 +93,17 @@ image BatyaAngry = "batya/BatyaAngry.png"
 image BatyaHood = "batya/BatyaHood.png"
 image BatyaRifle = "batya/BatyaRifle.png"
 #image BatyaRope = "batya/BatyaRope.png"
-image BatyaHappy = "batya/BatyaHappy.png"
+image BatyaHoodHappy = "batya/BatyaHoodHappy.png"
 image BatyaHoodShot = "batya/BatyaHoodShot.png"
 image BatyaRifleShot = "batya/BatyaRifleShot.png"
 
 image BatyaHoodFlip = im.Flip("batya/BatyaHood.png", horizontal="True")
 image BatyaRifleFlip = im.Flip("batya/BatyaRifle.png", horizontal="True")
+image BatyaRifleShotFlip = im.Flip("batya/BatyaRifleShot.png", horizontal="True")
 #image BatyaRopeFlip = im.Flip("batya/BatyaRope.png", horizontal="True")
 image BatyaHappyFlip = im.Flip("batya/BatyaHappy.png", horizontal="True")
+image BatyaHoodHappyFlip = im.Flip("batya/BatyaHoodHappy.png", horizontal="True")
+
 
 
 #CПрайты Мати
@@ -130,7 +141,10 @@ image FerreroAngryFlip = im.Flip("ferrero/FerreroAngry.png", horizontal="True")
 
 #Спрайты Simon
 image Simon = "simon/Simon.png"
+image SimonAngry = "simon/SimonAngry.png"
+
 image SimonFlip = im.Flip("simon/Simon.png", horizontal="True")
+image SimonAngryFlip = im.Flip("simon/SimonAngry.png", horizontal="True")
 
 
 #Спрайты Elias
@@ -166,6 +180,9 @@ label start:
     scene house
     show BatyaAngry at left
     with dissolve
+
+    play music DE1 fadein 4.0
+
     b "ТЫ НИЧЕГО НЕ ДОБЬЕШСЯ В ЭТОМ МЕГАПОЛИСЕ! ТАКОМУ ДУРАКУ НЕ НАЙТИ ТАМ МЕСТА!"
     b "ТВОЙ УДЕЛ - РАБОТАТЬ НА ФЕРМЕ,ЗНАЙ СВОЕ МЕСТО,СОПЛЯК!"
 
@@ -217,6 +234,8 @@ label start:
     nvl hide
     nvl clear
 
+    stop music fadeout 1.0
+    queue music DE3 fadein 5.0
 
     scene road
     with dissolve
@@ -243,6 +262,8 @@ label start:
     nvl hide
     nvl clear
 
+    play soung bip
+
     scene roadCar
     show Tihon
 
@@ -259,7 +280,8 @@ label start:
     scene car
     with dissolve
 
-    play music car fadein 5.0
+    stop music fadeout 1.0
+    queue music car fadein 5.0
 
 
     show Tihon at left
@@ -512,6 +534,9 @@ label act2:
     scene black
     with dissolve
 
+    stop music fadeout 1.0
+    queue music BG3 fadein 2.0
+
     n 'Согласие на стажировку выжало мои последние силы, и я неожиданно погрузился в царство Морфея.'
     n 'В нем я наблюдал многие сцены своей жизни: Новый год, Дни Рождения Тыквенный спас - все моменты моего счастья.'
     n 'Но вдруг чья-то огромная рука выдернула меня из них, отправив на отцовский завод.'
@@ -528,7 +553,8 @@ label act2:
     show Ferrero at right
     with dissolve
 
-    play music car fadein 5.0
+    stop music fadeout 1.0
+    queue music car fadein 5.0
 
     fr 'Доброе утро, соня'
 
@@ -554,10 +580,13 @@ label act2:
     fr 'Как бы то ни было, пришло время покинуть судно'
 
     stop music fadeout 1.0
+    queue music HPH1 fadein 2.0
 
     scene street
     show Tihon at left
     show FerreroFlip at right
+
+
 
     n 'Мы вышли из машины, и моему взору предстала улица сошедшая с кадров какого-то фильма: вымощенная плиткой дорога, красивейшие здания, скребущие небо,'
     n 'Аккуратно подстриженные деревья и залакированные скамейки.'
@@ -575,11 +604,15 @@ label act2:
     fr 'Держи карту доступа сотрудника, найди Симона - он наш кадровик, он тебе понравится, уверяю. Ну, а я побежал, удачи!'
 
     hide FerreroFlip
+    with dissolve
 
     n 'Быстро всунув мне карту, Ферреро скрылся из вида, странный он, а в прочем не важно, пришло время приключений (уже хочу домой)'
 
     scene before_lift
     show Tihon at left
+
+    stop music fadeout 0.5
+    queue music P2 fadein 2.0
 
     n 'Проскользнув в двери офиса, я очутился на стойке регистрации, где женщина средних лет с глазами мертвой рыбы спросила хриплым голосом'
     n 'кто я и что мне собственно понадобилось в этой обители офисных клерков.'
@@ -589,6 +622,9 @@ label act2:
     scene lift
     show Tihon at left
     with dissolve
+
+    stop music fadeout 1.0
+    queue music lift fadein 5.0
 
     n 'Подойдя к этому металлическому ящику на тросе, я нажал кнопку вызова. Двери распахнулись на удивление близко, что, признаться, меня расстроило.'
     nvl clear
@@ -681,6 +717,9 @@ label act2:
     show Tihon at left
     show EliasFlip at right
 
+    stop music fadeout 1.0
+    queue music P3 fadein 5.0
+
     n 'Схватив меня за руку, он потащил меня в известном только ему одному направлении.'
     n 'Во время этого светового прыжка я уловил на себе полные сочувствия глаза окружающих,'
     n 'которые смотрели на меня словно на новенькую игрушку, нещадно тянущуюся и рвущуюся от играющего с ней гиперактивного пса.'
@@ -707,6 +746,8 @@ label act2:
 
     t 'Меня на стажировку взял Ферреро Роше'
 
+    hide SimonFlip
+    show SimonAngryFlip
 
     s 'ОПЯТЬ'
 
@@ -739,6 +780,9 @@ label act2:
     scene bar
     show Tihon
 
+    stop music fadeout 1.0
+    queue music HUE fadein 5.0
+
 
     n 'Уже в баре я увидел на стойке знакомое, уже покрасневшее от выпитого, лицо Симона, печально развалившегося на столе.'
     n 'Недолго думая, толпа заволокла его на нашу попойку, несмотря на его открытое недовольство.'
@@ -751,6 +795,9 @@ label act2:
 
     scene office
     show Tihon
+
+    stop music fadeout 1.0
+    queue music P3 fadein 5.0
 
     n 'Очнулся я уже в офисе. Само собой как снова сюда попал я не помнил.'
     n 'Неподалеку от себя я обнаружил остальных коллег, лежавших в бессознательном состоянии, я счёл за свой священный долг их разбудить.'
@@ -814,6 +861,7 @@ label act2:
     t 'Оу, окей'
 
     hide ShramFlip
+    with dissolve
 
     n 'Резко встав со стула, у меня потемнело в глазах, но тем не менее я смог сохранить равновесие и широким шагом дошел до кабинета Ферреро.'
     nvl clear
@@ -825,6 +873,9 @@ label act2:
     scene cabinet
     show Tihon at left
     show FerreroFlip at right
+
+    stop music fadeout 1.0
+    queue music car fadein 5.0
 
     n 'Зайдя в кабинет, я увидел своего босса, старательно подтачивающего ноготки своему пуделю.'
     nvl clear
@@ -869,6 +920,9 @@ label act2:
     show Tihon at left
     show EliasFlip at right
 
+    stop music fadeout 1.0
+    queue music DE2 fadein 5.0
+
     e 'О, снова ты'
 
     t 'Что ты тут делаешь?'
@@ -892,6 +946,9 @@ label act2:
 
     scene office
 
+    stop music fadeout 1.0
+    queue music P3 fadein 5.0
+
     n 'Я проснулся, поработал с перерывами на еду и просмотрами мемов в ВК и пошел спать. Так прошел месяц.'
     n 'Мне пришла первая зп - месячный запас доширака, в моем случае могло быть и хуже.'
     nvl clear
@@ -904,6 +961,9 @@ label act2:
     nvl clear
     n 'Встав, я пытался дойти до своей комнаты, но тело противилось этому всеми способами, и по итогу добилось своего.'
     nvl clear
+
+    play sound crack
+
     n 'Я упал и помимо присущей падению боли почувствовал движение в штанах.'
     n 'Это был мой складной нож, который я постоянно использовал в быту: нарезать колбасу там или еще чего.'
     nvl clear
@@ -935,6 +995,10 @@ label act2:
 
 
 label bad_ending2:
+
+    stop music fadeout 1.0
+    queue music P2 fadein 5.0
+
     n 'Нет, не могу я игнорировать эту чертовщину. Резким движением руки я заставил палас разойтись, словно Моисей, раздвинувший море.'
     n 'Я заметил, что эти провода были подключены к компьютерам некоторых сотрудников, к моему в том числе.'
     nvl clear
@@ -951,6 +1015,9 @@ label bad_ending2:
     nvl clear
     scene AI
     show TihonSurprised at left
+
+    stop music fadeout 1.0
+    queue music P1 fadein 5.0
 
     n 'Там стоял огромный ламповый монитор, а также куча других, мало понятных мне вещей. Я решил изучить окружение, но тут же услышал шаги.'
     n 'Кто-то шел к кабинету, но кто?'
@@ -984,7 +1051,11 @@ label bad_ending2:
     hide EliasMouthFlip
     with dissolve
 
-    n 'Не успел он закончить как неизвестный нанес удар. Я услышал глухой стук, словно упавшее яблоко, что-то упало и покатилось в направлении ко мне.'
+    n 'Не успел он закончить как неизвестный нанес удар.'
+
+    play sound head
+
+    n 'Я услышал глухой стук, словно упавшее яблоко, что-то упало и покатилось в направлении ко мне.'
     nvl clear
 
     hide EliasDeadFlip
@@ -1020,6 +1091,8 @@ label bad_ending2:
 #Right choise
 label continue1:
 
+    stop music fadeout 1.0
+    queue music P2 fadein 5.0
 
     n 'Отринув дурные мысли, я быстро заштопал ковер и пошел спать. Но чем дальше шли дела, тем больше странностей я стал подмечать.'
     n 'То вещи лежат в других местах, то некоторые сотрудники ведут себя странно.'
@@ -1037,6 +1110,9 @@ label continue1:
     show TihonSurprised at left
     show EliasAngryFlip at right
 
+    stop music fadeout 1.0
+    queue music DE4 fadein 5.0
+
     e 'А Я ВЕДЬ ВСЕГДА ЗНАЛ!'
 
     e 'ЗА ВСЕМИ НАМИ СЛЕДИТ БОЛЬШОЙ БРАТ ИЛИ ЕЩЕ КАКОЙ-НИБУДЬ ДРУГОЙ РОДСТВЕНИК, ИЛИ ЭТО ЯЩЕРЫ, А МОЖЕТ ВООБЩЕ КИБОРГИ!'
@@ -1051,6 +1127,13 @@ label continue1:
 
     n 'На том и порешили. Для остальных мы были обычными стажерами, но в тайне мы исследовали подноготную \"БОЛЬШИХ ШИШЕК\".'
     nvl clear
+
+    scene room
+    with dissolve
+    show TihonSurprised at left
+
+    stop music fadeout 1.0
+    queue music DE2 fadein 5.0
 
     n 'Как мы выяснили ее основали Ферреро Роше, Юрий Юлернович и Всеволод Шапокляк, по всей видимости они решили использовать свои псевдонимы.'
     n 'Начав маленькой компанией они в феноменально маленькие сроки смогли добиться признания как одна из лучших игровых компаний.'
@@ -1092,6 +1175,10 @@ label continue1:
 
 
     scene office
+
+    stop music fadeout 1.0
+    queue music BG3 fadein 5.0
+
     n 'Мы с Элиасом пошли в сторону кабинета Роше. Вдруг все в офисе встали и начали пристально смотреть на нас, словно стая львов смотрит на пару антилоп.'
     n 'Стало понятно, что все они были спящими агентами и тоже были причасты к той неразберихе что здесь происходит.'
     n 'Карты уже лежат на столе, остается только отвечать. Быстро прорвавших к кабинету, мы распахнули дверь, где сидел, уже ожидавший нас Ферреро.'
@@ -1113,13 +1200,15 @@ label continue1:
     e 'МЕНЯ НЕ МОЖЕТ УВОЛИТЬ КАКОЙ-ТО ТРЕКЛЯТЫЙ РЕПТИЛОИД, У МЕНЯ...'
 
     hide EliasAngry
-    with dissolve
+
+    play sound fall
 
     n 'Неожиданно раздался глухой стук. Я увидел лежавшего на полу приятеля, а также Симона с какой-то доской.'
     nvl hide
     nvl clear
 
     show Simon
+    with dissolve
 
     s '\[состояние протокола 66: успешно выполнен\]'
 
@@ -1150,6 +1239,9 @@ label continue1:
     show TihonSurprised at left
     show FerreroFlip at right
 
+    stop music fadeout 1.0
+    queue music DE3 fadein 5.0
+
     n 'Это место разительно отличалось от остального офиса, даже сильнее чем кабинет Роше.'
     nvl clear
     n 'В самом центре находился огромный монитор с россыпью экранов поменьше по бокам. Роше подошел туда и включил эту махину.'
@@ -1177,11 +1269,15 @@ label continue1:
 
     fr 'Уже скоро мой друг вернется в этот мир полноценно, как человек'
 
+    play sound click
+
     fr '*Щелчок пальцев*'
 
     fr 'Посадите его на место'
 
     n 'Меня быстро подхватили за руки и усадили на какое-то изощренное подобие электрического стула с кучей электроники, ремней и даже шлем - все как полагается.'
+    nvl clear
+    nvl hide
 
     hide TihonSurprised
     show TihonHelmet
@@ -1200,6 +1296,9 @@ label continue1:
     hide FerreroFlip
     with dissolve
 
+    stop music fadeout 0.5
+    queue music LT fadein 0.5
+
     n 'Но вдруг в кабинет неожиданно ворвался мужчина в капюшоне с ружьем на перевес и с ходу устранил троих помощников,'
     nvl hide
 
@@ -1211,6 +1310,7 @@ label continue1:
 
     hide BatyaHood
     show BatyaHoodShot at left
+    play sound shoot
 
     hide SimonFlip
     #show DeadRobot at left
@@ -1226,6 +1326,7 @@ label continue1:
 
     hide BatyaHood
     show BatyaHoodShot at left
+    play sound shoot
 
     pause 0.1
 
@@ -1236,6 +1337,7 @@ label continue1:
 
     hide BatyaHood
     show BatyaHoodShot at left
+    play sound shoot
 
     pause 0.1
 
@@ -1280,6 +1382,7 @@ label continue1:
 
     hide BatyaRifle
     show BatyaRifleShot at left
+    play sound shoot
 
     pause 0.1
 
@@ -1294,6 +1397,7 @@ label continue1:
     pause 1.5
 
     hide FerreroWoundFlip
+    play sound fall
 
     n 'Раздался выстрел, отец попал Роше в плечо, от чего тот с
     грохотом упал.'
@@ -1314,6 +1418,9 @@ label continue1:
     n 'Машина начала произносить какие-то слова в двоичном коде, от чего все киборги в одночасье перешли в агрессивный режим.'
     nvl clear
     scene black
+
+    stop music fadeout 1.0
+    queue music DE4 fadein 5.0
 
     n 'Отец пытался отстреливаться, но пал под их безжалостным напором. Они связали его вместе с раненым Роше.'
     nvl hide
@@ -1361,6 +1468,9 @@ label continue1:
 
     hide FerreroRopeFlip
     with dissolve
+
+    stop music fadeout 1.0
+    queue music HPH2 fadein 5.0
 
 
     $ end1 = 0
@@ -1446,6 +1556,10 @@ else:
     #эндинг 1 \[А\]покалипсис сегодня.
 
 label ending1:
+
+    stop music fadeout 1.0
+    queue music FH fadein 5.0
+
     ul 'На основе полученных данных я пришел к заключению - человечество подлежит уничтожению'
 
     ul '\[ЗАПУСК ЯДЕРНОГО ОРУЖИЯ ЧЕРЕЗ 3...2...1...ЗАПУСК\]'
@@ -1464,6 +1578,11 @@ label ending1:
     n 'По какой-то причине ЮЛЕНР не стал их истреблять, может быть это простое любопытство, а может и остатки человечности, доставшиеся ему от Юрия...'
     nvl hide
     nvl clear
+
+    scene end12
+
+    pause 10.0
+
     return
 
 
@@ -1473,6 +1592,9 @@ label ending1:
     #ендинг 2 Эпоха безмол\[в\]ия
 
 label ending2:
+
+    stop music fadeout 1.0
+
     ul 'Ты...издеваешься...тебе действительно...нечего...сказать...'
 
     ul 'Это...безумие...хорошо...я тоже буду молчать...и заставлю молчать весь мир вместе с собой...'
@@ -1493,6 +1615,11 @@ label ending2:
     n 'Кто знает, распространилось это только на город или на весь мир... Как бы то ни было нас ждут большие перемены.'
     nvl hide
     nvl clear
+
+    scene end22
+
+    pause 10.0
+
     return
 
 
@@ -1504,6 +1631,10 @@ label ending2:
     #ендинг 3 Мир \[С\]частливых ДЕТЕЙ
 
 label ending3:
+
+    stop music fadeout 1.0
+    queue music HPH1 fadein 5.0
+
     ul 'Что...твои ответы противоречат моей базе данных и ставят под сомнение меня самого...'
 
     ul 'ArithmeticException Handler: System.DivideByZeroException: Attempted to divide by zero. at ExceptionTestClass.Main()'
@@ -1535,7 +1666,7 @@ label ending3:
     nvl clear
 
     hide BatyaRifleFlip
-    #show BatyaHoodHappyFlip
+    show BatyaHoodHappyFlip
 
     fr 'НЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕЕТ!'
 
@@ -1599,6 +1730,11 @@ label ending3:
     n 'Элиаса отец пристроил к работе в полях, а ему это даже нравиться. Что же твориться у них в Финляндии.'
     n 'А что до меня, я тоже периодически помогаю отцу с работой, но при этом делаю разные проекты на аутсорс для заработка.'
     n 'Думаю через год-другой смогу накопить на квартиру и съеду от родителей. Жизнь потихоньку налаживается...'
-    return
     nvl hide
     nvl clear
+
+    scene end32
+
+    pause 10.0
+
+    return
